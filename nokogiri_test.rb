@@ -12,6 +12,10 @@ html.xpath('//a[@class="product-content-box panel"]/@href').each do |node|
        puts url
 
        products = Nokogiri::HTML(open("#{url}"))
+
+       img = products.xpath('//a[@class="fancybox-thumb"]/img/@src')
+
+
        		products.xpath('//li[@itemprop="offers"]').each do |node|
        			section_html = Nokogiri::HTML(node.inner_html)
        			title = section_html.xpath('//div[@class="title"]').text
@@ -23,41 +27,13 @@ html.xpath('//a[@class="product-content-box panel"]/@href').each do |node|
        			puts price
        			puts sku
        			puts dispatch
+       				if 
+       					title != nil
+       					puts "http:#{img}"
+       				else
+       				end
        			puts "\n\n\n"
 
-       			
-       			#title = product_info.xpath('//div[@class="title"]').text
-       			#price = product_info.xpath('//span[@itemprop="price"]').text
-       			#puts title
-       			#puts price
        end
-
-
-#       products.xpath('//div[@class="title"]').each do |title|
- #      		title = title.text
-  #     		puts title		
-   #    end
-#
- #      products.xpath('//span[@itemprop="price"]').each do |price|
-  #     		price = price.text
-   #    		puts price
-    #   end
     end
-
-
-#html.xpath('//div[@class="gridbox one-quarter"]').each do |node|
-#		url = html.xpath('//a[@class="product-content-box panel"]/@href')
-#		real_url = "http://www.viovet.co.uk#{url}"
-#		#puts "#{real_url}"
-#		puts real_url.size
-#		puts real_url
-#   end
-    
-
-#html.css(".gridbox .one-quarter").each do |item|
-#	puts item.inner_html, "\n\n"
-#	puts item.at_css(".gridbox .one-quarter")[:href]
-#end
-
-#puts html.css(".product-content-box")[3].text
 
