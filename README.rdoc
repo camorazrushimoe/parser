@@ -1,2 +1,3 @@
-Парсер сайта http://www.viovet.co.uk
-nokogiri_test.rb
+Рабочий парсер сайта http://www.viovet.co.uk.
+
+Указываете категорию товаров, парсер складывает все товары в csv файлик. Скрипт тут nokogiri_test.rb
